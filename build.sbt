@@ -1,24 +1,19 @@
 name := "mongoauth"
 
-version := "2.5-M3-0.4"
+version := "2.5-M4-0.4"
 
 organization := "net.liftmodules"
 
 scalaVersion := "2.9.1"
 
-crossScalaVersions := Seq("2.9.1", "2.9.2")
+crossScalaVersions := Seq("2.10.0", "2.9.1", "2.9.2")
 
 libraryDependencies <++= (scalaVersion) { scalaVersion =>
-  val scalatestVersion = scalaVersion match {
-    case "2.8.0" => "1.3.1.RC2"
-    case "2.8.1" | "2.8.2" => "1.5.1"
-    case _       => "1.6.1"
-  }
-  val liftVersion = "2.5-M3"
+  val liftVersion = "2.5-M4"
   Seq(
     "net.liftweb" %% "lift-mongodb-record" % liftVersion % "compile",
     "ch.qos.logback" % "logback-classic" % "1.0.3" % "provided",
-    "org.scalatest" %% "scalatest" % scalatestVersion % "test",
+    "org.scalatest" %% "scalatest" % "1.9.1" % "test",
     "org.mindrot" % "jbcrypt" % "0.3m" % "compile"
   )
 }
